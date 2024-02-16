@@ -13,7 +13,8 @@ def main():
             for item in input_json['errors']:
                 print("⚠️ **Message:** {}</br>".format(item['message']))
                 print("**Relative schema path:** {}</br>".format(list(collections.deque(item['relative_schema_path']))))
-                print("**$id:** {}</br>".format(item['$id']))
+                if '$id' in item:
+                    print("**$id:** {}</br>".format(item['$id']))
                 print('</br>')
         else:
             print('No errors found')
